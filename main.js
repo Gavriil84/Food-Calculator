@@ -21,7 +21,8 @@ const foodSum = function() {
 }
 
 
+document.addEventListener('click', foodSum);
 
-btn.addEventListener('click', foodSum);
+
 
 console.log(food)
