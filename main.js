@@ -9,19 +9,21 @@ class Foods {
     }
 }
 
-const foodSum = function() {    
-    const btn = document.getElementById('btn');
-    const foodName = document.getElementById('foodName').value;
-    const carb = document.getElementById('carb').value;
-    const fat = document.getElementById('fat').value;
-    const protein = document.getElementById('protein').value;
+const btn = document.getElementById('btn');
 
-    let foodDetail = new Foods(foodName, carb, fat, protein)
+const foodSum = function() {    
+    let foodDetail = new Foods(foodName.value, carb.value, fat.value, protein.value)
     food.push(foodDetail);
+
+    foodName.value = "";
+    carb.value = "";
+    fat.value = "";
+    protein.value = "";
 }
 
 
-document.addEventListener('click', foodSum);
+btn.addEventListener('click', foodSum);
+
 
 
 
