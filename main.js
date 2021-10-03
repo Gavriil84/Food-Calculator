@@ -36,18 +36,27 @@ const foodSum = function() {
     }
     outputArea.innerHTML += foodList;
 
+    let maxCarb = 0;
+    let maxCarbName;
 
+    for(let i = 0; i < food.length; i++) {
+        if(food[i].carb > maxCarb) {
+            maxCarbName = food[i].name;
+        }
+    }
     
-    function getCarb(){
-        return food.map(f => f.carb)
-    }
+    console.log(maxCarbName)
 
-    function getMaxCarb(){
-        return Math.max(...getCarb())
-    }
+    // function getCarb(){
+    //     return food.map(f => f.carb)
+    // }
 
-    const maxCarb = getMaxCarb()
-    console.log(maxCarb)
+    // function getMaxCarb(){
+    //     return Math.max(...getCarb())
+    // }
+
+    // const maxCarb = getMaxCarb()
+    // console.log(maxCarb)
 
 
     foodName.value = "";
