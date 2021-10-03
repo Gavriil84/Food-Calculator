@@ -1,9 +1,5 @@
 const food = [];
 
-let maxCarb = 0;
-let maxFat = 0;
-let maxProtein = 0;
-
 class Foods {
     constructor(name, carb, fat, protein) {
         this.name = name;
@@ -20,6 +16,7 @@ const foodSum = function() {
     const carb = document.getElementById('carbs').value;
     const fat = document.getElementById('fats').value;
     const protein = document.getElementById('proteins').value;
+    const outputArea = document.querySelector('.outputArea');
 
 
     let foodDetail = new Foods(name, carb, fat, protein)
@@ -31,23 +28,19 @@ const foodSum = function() {
         food.push(foodDetail);
     }
 
-    for (let i = 0; i < food.length; i++) {
-        if (food[i].carb > maxCarb) {
-            maxCarb = food[i].carb;
-        }
-    }
+    // for (let i = 0; i < food.length; i++) {
+    //     if (food[i].carb > maxCarb) {
+    //         maxCarb = food[i].carb;
+    //     }
+    // }
+
+    let foodList;
 
     for(let i = 0; i < food.length; i ++){
-        // let p = document.createElement('p');
-        // let textNode = document.createTextNode(food[i].name)
-        // p.appendChild(textNode)
-        // foodList.appendChild(p)
-
-        let li = document.createElement('li');
-        li.innerHTML = food[i].name;
-        const foodList = document.querySelector('.foodContainer')
-        foodList.appendChild(li);
+        foodList = `${name}<br>`
     }
+
+    outputArea.innerHTML += foodList;
 
     foodName.value = "";
     carbs.value = "";
@@ -58,14 +51,6 @@ const foodSum = function() {
 
 
 btn.addEventListener('click', foodSum);
-
-
-
-
-
-
-
-
 
 console.log(food)
 
