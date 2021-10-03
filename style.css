@@ -45,3 +45,16 @@ button:hover{
     color: black;
 }
 
+.list{
+    background-color: rgba(255, 140, 0, 0.76);
+}
+
+.foodContainer{
+    border: solid 1px black;
+    min-height: 50px;
+    border-radius: 10px;
+}
+
+li{
+    font-size: 20px;
+}

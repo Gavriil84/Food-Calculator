@@ -31,18 +31,28 @@ const foodSum = function() {
         food.push(foodDetail);
     }
 
-    
-    foodName.value = "";
-    carbs.value = "";
-    fats.value = "";
-    proteins.value = "";
-
     for (let i = 0; i < food.length; i++) {
         if (food[i].carb > maxCarb) {
             maxCarb = food[i].carb;
         }
-        console.log(food[i].name)
     }
+
+    for(let i = 0; i < food.length; i ++){
+        // let p = document.createElement('p');
+        // let textNode = document.createTextNode(food[i].name)
+        // p.appendChild(textNode)
+        // foodList.appendChild(p)
+
+        let li = document.createElement('li');
+        li.innerHTML = food[i].name;
+        const foodList = document.querySelector('.foodContainer')
+        foodList.appendChild(li);
+    }
+
+    foodName.value = "";
+    carbs.value = "";
+    fats.value = "";
+    proteins.value = "";
     
 }
 
