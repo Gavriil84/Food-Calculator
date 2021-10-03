@@ -1,5 +1,6 @@
 const food = [];
 
+// Food class
 class Foods {
     constructor(name, carb, fat, protein) {
         this.name = name;
@@ -28,19 +29,26 @@ const foodSum = function() {
         food.push(foodDetail);
     }
 
-    // for (let i = 0; i < food.length; i++) {
-    //     if (food[i].carb > maxCarb) {
-    //         maxCarb = food[i].carb;
-    //     }
-    // }
-
     let foodList;
 
     for(let i = 0; i < food.length; i ++){
         foodList = `${name}<br>`
     }
-
     outputArea.innerHTML += foodList;
+
+
+    
+    function getCarb(){
+        return food.map(f => f.carb)
+    }
+
+    function getMaxCarb(){
+        return Math.max(...getCarb())
+    }
+
+    const maxCarb = getMaxCarb()
+    console.log(maxCarb)
+
 
     foodName.value = "";
     carbs.value = "";
