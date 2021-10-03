@@ -1,5 +1,9 @@
 const food = [];
 
+let maxCarb = 0;
+let maxFat = 0;
+let maxProtein = 0;
+
 class Foods {
     constructor(name, carb, fat, protein) {
         this.name = name;
@@ -32,8 +36,26 @@ const foodSum = function() {
     carbs.value = "";
     fats.value = "";
     proteins.value = "";
+
+    for (let i = 0; i < food.length; i++) {
+        if (food[i].carb > maxCarb) {
+            maxCarb = food[i].carb;
+        }
+        console.log(food[i].name)
+    }
+    
 }
+
 
 btn.addEventListener('click', foodSum);
 
+
+
+
+
+
+
+
+
 console.log(food)
+
