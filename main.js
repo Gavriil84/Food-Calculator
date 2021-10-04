@@ -48,6 +48,9 @@ const foodSum = function() {
     let maxProtein = 0;
     let maxProteinName;
 
+
+
+
     // Carb Filter
     for(let i = 0; i < food.length; i++) {
         if(food[i].carb > maxCarb) {
