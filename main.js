@@ -18,6 +18,9 @@ const foodSum = function() {
     const fat = document.getElementById('fats').value;
     const protein = document.getElementById('proteins').value;
     const outputArea = document.querySelector('.outputArea');
+    const outputArea2 = document.querySelector('.outputArea2');
+    const outputArea3 = document.querySelector('.outputArea3');
+    const outputArea4 = document.querySelector('.outputArea4');
 
 
     let foodDetail = new Foods(name, carb, fat, protein)
@@ -36,28 +39,44 @@ const foodSum = function() {
     }
     outputArea.innerHTML += foodList;
 
+
+
     let maxCarb = 0;
     let maxCarbName;
+    let maxFat = 0;
+    let maxFatName;
+    let maxProtein = 0;
+    let maxProteinName;
 
+    // Carb Filter
     for(let i = 0; i < food.length; i++) {
         if(food[i].carb > maxCarb) {
-            maxCarbName = food[i].name;
+            maxCarb = food[i].carb
+            maxCarbName = `${food[i].name} has the highest carb <br>`;
         }
     }
-    
-    console.log(maxCarbName)
+        
+    outputArea2.innerHTML = maxCarbName;
 
-    // function getCarb(){
-    //     return food.map(f => f.carb)
-    // }
+    // Fat Filter
+    for(let i = 0; i < food.length; i++) {
+        if(food[i].fat > maxFat) {
+            maxFat = food[i].fat
+            maxFatName = `${food[i].name} has the highest fat <br>`;
+        }
+    } 
+            
+    outputArea3.innerHTML = maxFatName;
 
-    // function getMaxCarb(){
-    //     return Math.max(...getCarb())
-    // }
-
-    // const maxCarb = getMaxCarb()
-    // console.log(maxCarb)
-
+     // Proitein Filter
+    for(let i = 0; i < food.length; i++) {
+        if(food[i].protein > maxProtein) {
+            maxProtein = food[i].fat
+            maxProteinName = `${food[i].name} has the highest protein <br>`;
+        }
+    } 
+            
+    outputArea4.innerHTML = maxProteinName;
 
     foodName.value = "";
     carbs.value = "";
