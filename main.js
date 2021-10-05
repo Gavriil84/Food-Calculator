@@ -4,14 +4,16 @@ const food = [];
 class Foods {
     constructor(name, carb, fat, protein) {
         this.name = name;
-        this.carb = parseFloat(carb).toFixed(2);
-        this.fat = parseFloat(fat).toFixed(2);
-        this.protein = parseFloat(protein).toFixed(2);
+        this.carb = parseInt(carb);
+        this.fat = parseInt(fat);
+        this.protein = parseInt(protein);
     }
 }
 
+// btn definition
 const btn = document.getElementById('btn');
 
+// click event
 const foodSum = function() {
     const name = document.getElementById('foodName').value;
     const carb = document.getElementById('carbs').value;
@@ -25,6 +27,7 @@ const foodSum = function() {
 
     let foodDetail = new Foods(name, carb, fat, protein)
 
+    // filter empty input
     if (name == null || name == "", carb == null || carb == "", fat == null || fat == "", protein == null || protein == "") {
         alert("Please Fill All Required Field");
         return false;
@@ -34,52 +37,50 @@ const foodSum = function() {
 
     let foodList;
 
+    // add food list into the container
     for(let i = 0; i < food.length; i ++){
         foodList = `${name}<br>`
     }
     outputArea.innerHTML += foodList;
 
 
-
+    // filter highest ingredient
     let maxCarb = 0;
-    let maxCarbName;
+    let maxCarbName = [];
     let maxFat = 0;
-    let maxFatName;
+    let maxFatName = [];
     let maxProtein = 0;
-    let maxProteinName;
+    let maxProteinName = [];
 
-
-
-
-    // Carb Filter
     for(let i = 0; i < food.length; i++) {
-        if(food[i].carb > maxCarb) {
+        if(food[i].carb > maxCarb){
             maxCarb = food[i].carb
-            maxCarbName = `${food[i].name} has the highest carb <br>`;
+            maxCarbName.shift();
+            maxCarbName.push(food[i].name);
         }
     }
-        
-    outputArea2.innerHTML = maxCarbName;
 
-    // Fat Filter
+    outputArea2.innerHTML = `${maxCarbName} has the highest carb`;
+
     for(let i = 0; i < food.length; i++) {
-        if(food[i].fat > maxFat) {
+        if(food[i].fat > maxFat){
             maxFat = food[i].fat
-            maxFatName = `${food[i].name} has the highest fat <br>`;
+            maxFatName.shift();
+            maxFatName.push(food[i].name);
         }
-    } 
-            
-    outputArea3.innerHTML = maxFatName;
+    }
 
-     // Proitein Filter
+    outputArea3.innerHTML = `${maxFatName} has the highest fat`;
+
     for(let i = 0; i < food.length; i++) {
-        if(food[i].protein > maxProtein) {
-            maxProtein = food[i].fat
-            maxProteinName = `${food[i].name} has the highest protein <br>`;
+        if(food[i].protein > maxProtein){
+            maxProtein = food[i].protein
+            maxProteinName.shift();
+            maxProteinName.push(food[i].name);
         }
-    } 
-            
-    outputArea4.innerHTML = maxProteinName;
+    }
+
+    outputArea4.innerHTML = `${maxProteinName} has the highest protein`;
 
     foodName.value = "";
     carbs.value = "";
@@ -90,6 +91,3 @@ const foodSum = function() {
 
 
 btn.addEventListener('click', foodSum);
-
-console.log(food)
-
