@@ -35,6 +35,12 @@ const foodSum = function() {
         food.push(foodDetail);
     }
 
+    // number filter
+    if (isNaN(carb) || isNaN(fat) || isNaN(protein)) {
+        alert("Add numbers only")
+        return false;
+    }
+
     let foodList;
 
     // add food list into the container
@@ -44,6 +50,8 @@ const foodSum = function() {
     outputArea.innerHTML += foodList;
 
 
+    
+
     // filter highest ingredient
     let maxCarb = 0;
     let maxCarbName = [];
@@ -52,6 +60,8 @@ const foodSum = function() {
     let maxProtein = 0;
     let maxProteinName = [];
 
+
+    // carb
     for(let i = 0; i < food.length; i++) {
         if(food[i].carb > maxCarb){
             maxCarb = food[i].carb
@@ -62,6 +72,7 @@ const foodSum = function() {
 
     outputArea2.innerHTML = `${maxCarbName} has the highest carb`;
 
+    // fat
     for(let i = 0; i < food.length; i++) {
         if(food[i].fat > maxFat){
             maxFat = food[i].fat
@@ -72,6 +83,7 @@ const foodSum = function() {
 
     outputArea3.innerHTML = `${maxFatName} has the highest fat`;
 
+    // protein
     for(let i = 0; i < food.length; i++) {
         if(food[i].protein > maxProtein){
             maxProtein = food[i].protein
